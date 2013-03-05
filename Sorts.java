@@ -6,21 +6,46 @@
 import java.util.Random;
 public class Sorts{
 	public static void main(String[] args) {
-		// int[] nums  = randomArray(5, -3, 20);
-		// print(nums);
-		// print(bubbleSorts(nums));
-
-		int[] nums  = randomArray(5, -3, 1000);
+		int[] nums  = randomArray(5, -300, 0);
 		print(nums);
-		print(selectionSorts(nums));
+		print(bubbleSorts(nums));
+
+		// int[] nums  = randomArray(5, -1000, 1000);
+		// print(nums);
+		// print(selectionSorts(nums));
+		
+		// int[] nums  = randomArray(5, -300, 0);
+		// print(nums);
+		// print(insertionSorts(nums));
+		
 
 
 
 
 	}
-
 	/**
 	 * insertionSorts
+	 * 		sorts an array numerically
+	 *
+	 * @param  nums - array to be sorted
+	 * @return  sorted array
+	 */
+	public static int[] insertionSorts(int[] nums){
+  		for (int i = 1; i < nums.length; i++){
+  			int j = i;
+  			int b = nums[i];
+  			while ((j > 0) && (nums[j-1] > b)){
+  				nums[j] = nums[j-1];
+  				j--;
+  			}
+ 			nums[j] = b;
+  		}
+
+  		return nums;
+	}
+
+	/**
+	 * bubbleSorts
 	 *
 	 * 		sorts an array numerically
 	 *
@@ -61,7 +86,7 @@ public class Sorts{
 			max = nums[i];
 			switchSpot = i;
 			for(int j = i; j < nums.length; j++){
-				if(nums[j] > max){
+				if(nums[j] < max){
 					max = nums[j];
 					switchSpot = j;
 				}
